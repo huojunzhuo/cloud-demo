@@ -13,7 +13,7 @@ spring:
       discovery:
         server-addr: localhost:8848
         cluster-name: HZ #集群名称，这里HZ代指杭州
-        namespace: b648e04f-14ef-405c-854a-a8a06d767467 # dev环境
+        namespace: 4037881e-be56-4b1b-b694-5f852fdd44dd # dev环境（动态设置）
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
