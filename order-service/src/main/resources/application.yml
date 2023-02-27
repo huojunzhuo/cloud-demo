@@ -9,11 +9,11 @@ spring:
   application:
     name: orderservice
   cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848
-        cluster-name: HZ #集群名称，这里HZ代指杭州
-        namespace: 4037881e-be56-4b1b-b694-5f852fdd44dd # dev环境（动态设置）
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848
+#        cluster-name: HZ #集群名称，这里HZ代指杭州
+#        namespace: 4037881e-be56-4b1b-b694-5f852fdd44dd # dev环境（动态设置）
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
@@ -33,9 +33,18 @@ userservice:
   ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #负载均衡规则修改为随机
     NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则修改为优先本地集群，本地集群内多个服务随机负载均衡
-ribbon:
-  eager-load:
-    enabled: true #开启饥饿加载
-    clients: userservice #指定饥饿加载的服务名称
+#ribbon
+#  eager-load:
+#    enabled: true #开启饥饿加载
+#    clients: userservice #指定饥饿加载的服务名称
 #      - userservice
 #      - userservice
+feign:
+#  client:
+#    config:
+#     default:
+#       loggerLevel: Basic  #日志级别全局为basic
+  httpclient:
+    enabled: true # 开启feign对HttpClient的支持
+    max-connections: 200 #200 # 最大的连接数
+    max-connections-per-route: 50 # 每个路径的最大连接数
