@@ -21,3 +21,4 @@ spring:
             - Path=/order/**
       default-filters:
         - AddRequestHeader=Truth,Itcast is freaking aowsome! #请求头增加信息
+        - AddRequestHeader=origin,gateway #请求头加origin=gateway
